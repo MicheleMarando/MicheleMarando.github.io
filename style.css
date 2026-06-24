@@ -1,0 +1,225 @@
+#:root {
+#  --paper: #EDECE6;
+#  --ink: #1B1D1F;
+#  --ink-soft: #5B5E60;
+#  --accent: #2F8F8F;
+#  --accent-warm: #E8A33D;
+#  --line: #CFCDC4;
+#  --chip-bg: #1B1D1F;
+#  --chip-text: #EDECE6;
+#  --maxw: 920px;
+#}
+
+:root {
+  --paper: #1E1F22;
+  --panel: #2A2D31;
+  --panel-2: #25282D;
+  --line: rgba(255,255,255,0.08);
+  --ink: #E6E6E6;
+  --ink-soft: #A7ABB3;
+# --accent: #2F8F8F #teal;
+  --accent: #00ADEF;
+#  --accent-warm: #E8A33D;
+	--accent-warm: #F7931D;
+  --chip-bg: #1B1D1F;
+  --chip-text: #EDECE6;
+  --maxw: 920px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #C7C9CC
+}
+
+a { color: inherit; text-decoration: none; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.sectionIndex {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---- nav ---- */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  z-index: 10;
+}
+.nav { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 0.05em; }
+.nav ul { display: flex; gap: 28px; list-style: none; }
+.nav a { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; transition: color 0.15s ease; }
+.nav a:hover { color: var(--accent); }
+.nav a:hover::before { content: '['; margin-right: 4px; }
+.nav a:hover::after { content: ']'; margin-left: 4px; }
+
+/* ---- hero ---- */
+.hero { padding: 96px 24px 64px; }
+.hero-panel {
+  position: relative;
+  padding: 48px;
+  border: 1px solid var(--line);
+}
+.hero-panel::before, .hero-panel::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+}
+.hero-panel::before {
+  top: -1px; left: -1px;
+  border-top: 2px solid var(--accent-warm);
+  border-left: 2px solid var(--accent-warm);
+}
+.hero-panel::after {
+  bottom: -1px; right: -1px;
+  border-bottom: 2px solid var(--accent-warm);
+  border-right: 2px solid var(--accent-warm);
+}
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin: 16px 0 20px; max-width: 640px; }
+.lede { color: var(--ink-soft); max-width: 560px; margin-bottom: 32px; }
+.cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  padding: 12px 20px;
+  border: 1px solid var(--ink);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---- shared section spacing ---- */
+
+.projects, .about, .contact { padding: 64px 24px; }
+
+.projects h2, .about h2, .contact h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 1.6rem;
+  margin-bottom: 32px;
+}
+/*
+.projects, .about, .contact {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  margin: 24px auto;
+  padding: 80px 24px;
+  #max-width: var(--maxw);
+}
+*/
+/* ---- projects ---- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.project-card { border: 1px solid var(--line); }
+.thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--ink);
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.status {
+  position: absolute;
+  top: 8px; left: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent-warm);
+  border: 1px solid var(--accent-warm);
+  padding: 2px 6px;
+  background: rgba(27, 29, 31, 0.65);
+}
+.project-body { padding: 20px; }
+
+.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  padding: 3px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.project-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.project-card p { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 12px; }
+.link { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--accent); }
+.link:hover { text-decoration: underline; }
+
+/* ---- about ---- */
+.about-text { max-width: 640px; color: var(--ink-soft); margin-bottom: 32px; }
+.skill-list { list-style: none; max-width: 640px; }
+.skill-list li {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.skill-name { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+.skill-meter { display: block; height: 6px; background: var(--line); }
+.skill-meter span { display: block; height: 100%; background: var(--accent); }
+.skill-note { font-size: 0.8rem; color: var(--ink-soft); text-align: right; }
+
+/* ---- contact ---- */
+.contact-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.contact-links a:hover { color: var(--accent); }
+
+/* ---- footer ---- */
+.site-footer {
+  padding: 32px 24px 48px;
+  color: var(--ink-soft);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+}
+
+/* ---- responsive ---- */
+@media (max-width: 640px) {
+  .nav ul { gap: 16px; }
+  .hero-panel { padding: 28px; }
+  .skill-list li { grid-template-columns: 1fr; row-gap: 6px; }
+  .skill-note { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
