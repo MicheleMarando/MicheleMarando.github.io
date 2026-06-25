@@ -1,14 +1,4 @@
-#:root {
-#  --paper: #EDECE6;
-#  --ink: #1B1D1F;
-#  --ink-soft: #5B5E60;
-#  --accent: #2F8F8F;
-#  --accent-warm: #E8A33D;
-#  --line: #CFCDC4;
-#  --chip-bg: #1B1D1F;
-#  --chip-text: #EDECE6;
-#  --maxw: 920px;
-#}
+
 
 :root {
   --paper: #1E1F22;
@@ -17,9 +7,9 @@
   --line: rgba(255,255,255,0.08);
   --ink: #D6D8DC;
   --ink-soft: #9AA0A8;
-# --accent: #2F8F8F #teal;
+
   --accent: #00ADEF;
-#  --accent-warm: #E8A33D;
+
 	--accent-warm: #F7931D;
   --chip-bg: #1B1D1F;
   --chip-text: #EDECE6;
@@ -73,8 +63,7 @@ a:focus-visible, button:focus-visible {
 .nav ul { display: flex; gap: 28px; list-style: none; }
 .nav a { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; transition: color 0.15s ease; }
 .nav a:hover { color: var(--accent); }
-#.nav a:hover::before { content: '['; }
-#.nav a:hover::after { content: ']';}
+
 
 /* ---- hero ---- */
 .hero { padding: 96px 24px 64px; }
@@ -117,8 +106,8 @@ a:focus-visible, button:focus-visible {
 
 .projects, .about, .contact { padding: 64px 24px; }
 .about, .contact, .projects, .hero{
-	#background: var(--panel);
-	#border: 1px solid var(--line);
+/*	background: var(--panel);
+	border: 1px solid var(--line);*/
 }
 .projects h2, .about h2, .contact h2 {
   display: flex;
@@ -133,7 +122,7 @@ a:focus-visible, button:focus-visible {
   border: 1px solid var(--line);
   margin: 24px auto;
   padding: 80px 24px;
-  #max-width: var(--maxw);
+  max-width: var(--maxw);
 }
 */
 /* ---- projects ---- */
@@ -155,7 +144,6 @@ a:focus-visible, button:focus-visible {
 .project-card:hover {
   border-color: var(--accent);
   background: #30343A;
-  #transform: translateY(-2px);
 }
 
 .thumb {
@@ -195,6 +183,21 @@ a:focus-visible, button:focus-visible {
 .project-card p { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 12px; }
 .link { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--accent); }
 .link:hover { text-decoration: underline; }
+
+.now-learning .dots::after {
+  content: '';
+  width: 1.5em;
+  color: var(--accent);
+  animation: dots 1.5s steps(4, end) infinite;
+}
+@keyframes dots {
+  0%   { content: ''; }
+  25%  { content: '.'; }
+  50%  { content: '..'; }
+  75%  { content: '...'; }
+  100% { content: ''; }
+}
+.field-label { font-weight: 700; }
 
 /* ---- about ---- */
 .about-text { max-width: 640px; color: var(--ink-soft); margin-bottom: 32px; }
