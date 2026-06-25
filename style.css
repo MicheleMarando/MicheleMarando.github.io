@@ -186,7 +186,6 @@ a:focus-visible, button:focus-visible {
 
 .now-learning .dots::after {
   content: '';
-  width: 1.5em;
   color: var(--accent);
   animation: dots 1.5s steps(4, end) infinite;
 }
